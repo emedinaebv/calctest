@@ -1,0 +1,1081 @@
+{
+  "name": "BI PUERTOS",
+  "filters": {
+    "AÑO": {
+      "name": "Año",
+      "column": "1"
+    },
+    "GRUPO AL QUE PERTENECE": {
+      "name": "Grupo al que pertenece",
+      "column": "2"
+    },
+    "ARMADOR O COMPAÑIA NAVIERA": {
+      "name": "Armador o compañía naviera",
+      "column": "3"
+    },
+    "NAVIERA NACIONAL O INTERNACIONAL": {
+      "name": "Naviera nacional o internacional",
+      "column": "5"
+    },
+    "OPERADOR PORTUARIO": {
+      "name": "Operador portuario",
+      "column": "6"
+    },
+    "PRESTADORES DE SERVICIOS PORTUARIOS": {
+      "name": "Prestadores de Servicios Portuarios",
+      "column": "7"
+    },
+    "PROVEEDORES DE SERVICIOS COMERCIALES": {
+      "name": "Proveedores de Servicios Comerciales",
+      "column": "55"
+    },
+    "TITULAR DE CONCESION/AUTORIZACION": {
+      "name": "Titular de Concesión/Autorización Ocupación de Dominio Público",
+      "column": "8"
+    }
+  },
+  "inform_filters": [
+    "AÑO",
+    "GRUPO AL QUE PERTENECE",
+    "ARMADOR O COMPAÑIA NAVIERA",
+    "NAVIERA NACIONAL O INTERNACIONAL",
+    "OPERADOR PORTUARIO",
+    "PRESTADORES DE SERVICIOS PORTUARIOS",
+    "PROVEEDORES DE SERVICIOS COMERCIALES",
+    "TITULAR DE CONCESION/AUTORIZACION"
+  ],
+  "functions": {},
+  "pages": [
+    {
+      "name": "Tipo de encuestados",
+      "filters": [],
+      "content": [
+        {
+          "type": "row",
+          "content": [
+            {
+              "type": "col",
+              "content": [
+                {
+                  "type": "card",
+                  "header": "Número de encuestados por tipo de Compañía",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+
+                      "titles": [
+                        "TIPO",
+                        "Armador o compañia naviera",
+                        "Operador Portuario",
+                        "Prestadores de Servicios Portuarios",
+                        "Proveedor de Servicios Comerciales",
+                        "Titular de Concesión/Autorización Ocupación de Dominio Público",
+                        "TOTALES"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaencuestados(2).datos"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Número de encuestados por Armador o compañia naviera",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+
+                      "titles": [
+                        "TIPO",
+                        "consignatario",
+                        "Naviera de tráfico interinsular",
+                        "Naviera nacional o internacional",
+                        "TOTALES"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaencuestados(3).datos"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Número de encuestados por Naviera nacional o internacional",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+                      "titles": [
+                        "TIPO",
+                        "Naviera de Cruceros",
+                        "Naviera de mercancía contenerizada",
+                        "Naviera de mercancía de graneles",
+                        "Naviera de Tráfico Rodado",
+                        "Naviera de otros tipos de tráfico",
+                        "TOTALES"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaencuestados(5).datos"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Número de encuestados por Operador portuario",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+                      "titles": [
+                        "TIPO",
+                        "Agente de aduanas",
+                        "Transitario",
+                        "TOTALES"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaencuestados(6).datos"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Número de encuestados por Prestadores de servicios portuarios",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+                      "titles": [
+                        "TIPO",
+                        "Amarre y desamarre",
+                        "Practicaje",
+                        "Servicio de remolque",
+                        "Servicios al pasaje",
+                        "Suministro de combustible",
+                        "TOTALES"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaencuestados(7).datos"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Número de encuestados por Proveedores de servicios comerciales",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+                      "titles": [
+                        "TIPO",
+                        "Flaúas",
+                        "Gestión de residuos",
+                        "Otros servicios comerciales",
+                        "Provisionistas",
+                        "Suministro de combustible a buques",
+                        "Trabajos submarinos",
+                        "TOTALES"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaencuestados(55).datos"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Número de encuestados por Titular de concesión/Autorización de dominio público",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+                      "titles": [
+                        "TIPO",
+                        "Otros",
+                        "Reparaciones navales",
+                        "Terminal de carga",
+                        "TOTALES"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaencuestados(8).datos"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Puertos visitados",
+      "filters": [],
+      "content": [
+        {
+          "type": "row",
+          "content": [
+            {
+              "type": "col",
+              "content": [
+                {
+                  "type": "card",
+                  "header": "Puertos visitados por Tipo de Compañía",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+
+                      "titles": [
+                        "TIPO DE COMPAÑÍA",
+                        "Santa Cruz de Tenerife",
+                        "Los Cristianos",
+                        "La Palma",
+                        "La Gomera",
+                        "El Hierro"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaPuertos(1)"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Puertos visitados por Armador o compañía naviera",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+
+                      "titles": [
+                        "TIPO DE COMPAÑÍA",
+                        "Santa Cruz de Tenerife",
+                        "Los Cristianos",
+                        "La Palma",
+                        "La Gomera",
+                        "El Hierro"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaPuertos(2)"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Puertos visitados por naviera nacional o internacional",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+
+                      "titles": [
+                        "TIPO DE COMPAÑÍA",
+                        "Santa Cruz de Tenerife",
+                        "Los Cristianos",
+                        "La Palma",
+                        "La Gomera",
+                        "El Hierro"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaPuertos(3)"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Puertos visitados por Operador portuario",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+
+                      "titles": [
+                        "TIPO DE COMPAÑÍA",
+                        "Santa Cruz de Tenerife",
+                        "Los Cristianos",
+                        "La Palma",
+                        "La Gomera",
+                        "El Hierro"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaPuertos(4)"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Puertos visitados por prestadores de servicios portuarios",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+
+                      "titles": [
+                        "TIPO DE COMPAÑÍA",
+                        "Santa Cruz de Tenerife",
+                        "Los Cristianos",
+                        "La Palma",
+                        "La Gomera",
+                        "El Hierro"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaPuertos(5)"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Puertos visitados por Proveedores de servicios comerciales",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+
+                      "titles": [
+                        "TIPO DE COMPAÑÍA",
+                        "Santa Cruz de Tenerife",
+                        "Los Cristianos",
+                        "La Palma",
+                        "La Gomera",
+                        "El Hierro"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaPuertos(6)"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Puertos visitados por titular de concesión/Autorización ocupación de dominio público",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+
+                      "titles": [
+                        "TIPO DE COMPAÑÍA",
+                        "Santa Cruz de Tenerife",
+                        "Los Cristianos",
+                        "La Palma",
+                        "La Gomera",
+                        "El Hierro"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablaPuertos(7)"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Iniciativa de calidad que posee",
+      "filters": [],
+      "content": [
+        {
+          "type": "row",
+          "content": [
+            {
+              "type": "col",
+              "content": [
+
+                {
+                  "type": "card",
+                  "header": "¿Dispone de alguna iniciativa de calidad?",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+
+                      "titles": [
+                        "Tipo de compañía",
+                        "Si",
+                        "No",
+                        "TOTALES"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablainiciativas()"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+
+
+                {
+                  "type": "card",
+                  "header": "Iniciativa por grupos",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "chart",
+                      "chart": "bar",
+
+                      "blacklist": [0],
+                      "data": [
+                        "[datasets, labels, options] = fx.getDatasetnewBy(52,2);",
+                        "options.title = {};"
+                      ],
+
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Iniciativa por Armador o compañía naviera",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "chart",
+                      "chart": "bar",
+
+                      "blacklist": [0],
+                      "data": [
+                        "[datasets, labels, options] = fx.getDatasetnewBy(52,3);",
+                        "options.title = {};"
+                      ],
+
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Iniciativa por naviera nacional o internacional",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "chart",
+                      "chart": "bar",
+
+                      "blacklist": [0],
+                      "data": [
+                        "[datasets, labels, options] = fx.getDatasetnewBy(52,5);",
+                        "options.title = {};"
+                      ],
+
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Iniciativa por operador portuario",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "chart",
+                      "chart": "bar",
+
+                      "blacklist": [0],
+                      "data": [
+                        "[datasets, labels, options] = fx.getDatasetnewBy(52,6);",
+                        "options.title = {};"
+                      ],
+
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Iniciativa por prestadores de servicios portuarios",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "chart",
+                      "chart": "bar",
+
+                      "blacklist": [0],
+                      "data": [
+                        "[datasets, labels, options] = fx.getDatasetnewBy(52,7);",
+                        "options.title = {};"
+                      ],
+
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Iniciativa por titular de Concesión/Autorización de dominio público",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "chart",
+                      "chart": "bar",
+
+                      "blacklist": [0],
+                      "data": [
+                        "[datasets, labels, options] = fx.getDatasetnewBy(52,8);",
+                        "options.title = {};"
+                      ],
+
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sugerencias de mejora",
+      "filters": [],
+      "content": [
+        {
+          "type": "row",
+          "content": [
+            {
+              "type": "col",
+              "content": [
+                {
+                  "type": "card",
+                  "header": "¿Tiene alguna sugerencia de mejora?",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "table",
+
+                      "titles": [
+                        "Tipo de compañía",
+                        "Si",
+                        "No",
+                        "TOTALES"
+                      ],
+                      "blacklist": [0],
+                      "data": ["$return =  fx.tablasugerencias()"],
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Sugerencias por grupos",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "chart",
+                      "chart": "bar",
+
+                      "blacklist": [0],
+                      "data": [
+                        "[datasets, labels, options] = fx.getDatasetnew2By(52,2);",
+                        "options.title = {};"
+                      ],
+
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Sugerencias por Armador o compañía naviera",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "chart",
+                      "chart": "bar",
+
+                      "blacklist": [0],
+                      "data": [
+                        "[datasets, labels, options] = fx.getDatasetnew2By(52,3);",
+                        "options.title = {};"
+                      ],
+
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Sugerencias por naviera nacional o internacional",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "chart",
+                      "chart": "bar",
+
+                      "blacklist": [0],
+                      "data": [
+                        "[datasets, labels, options] = fx.getDatasetnew2By(52,5);",
+                        "options.title = {};"
+                      ],
+
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Sugerencias por operador portuario",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "chart",
+                      "chart": "bar",
+
+                      "blacklist": [0],
+                      "data": [
+                        "[datasets, labels, options] = fx.getDatasetnew2By(52,6);",
+                        "options.title = {};"
+                      ],
+
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Sugerencias por prestadores de servicios portuarios",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "chart",
+                      "chart": "bar",
+
+                      "blacklist": [0],
+                      "data": [
+                        "[datasets, labels, options] = fx.getDatasetnew2By(52,7);",
+                        "options.title = {};"
+                      ],
+
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "header": "Sugerencias por titular de Concesión/Autorización de dominio público",
+                  "class": "mb-3",
+                  "content": [
+                    {
+                      "type": "chart",
+                      "chart": "bar",
+
+                      "blacklist": [0],
+                      "data": [
+                        "[datasets, labels, options] = fx.getDatasetnew2By(52,8);",
+                        "options.title = {};"
+                      ],
+
+                      "config": {
+                        "labels": [
+                          {
+                            "render": "percentage",
+                            "fontColor": ["black"]
+                          }
+                        ],
+                        "tooltips": {
+                          "label": "",
+                          "title": ""
+                        },
+                        "legend": {
+                          "position": "left"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

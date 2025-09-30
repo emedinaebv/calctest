@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+  <head>
+    <title>AiBI</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/simplex/bootstrap.min.css" integrity="sha512-HomjKMBWTGWkTsGbdfxIKqLl2mMHTUG7vVepo0ihHftTX1UiiFz8w/eB5fnBvVHzCEKkWvLHtOiH2cxzD6qwfA==" crossorigin="anonymous" />
+    <link rel='stylesheet' href='https://unpkg.com/emoji.css/dist/emoji.min.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/app.css">
+  </head>
+  <body>
+
+    <div id="App">
+        <nav class="navbar navbar-expand navbar-dark bg-primary sticky-top">
+            <a class="navbar-brand" href="#">{{inform.name}}</a>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">{{page.name}}</a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-item">
+                                <input type="text" class="w-100" id="searchInput"/>
+                            </div>
+                            <a class="dropdown-item page-switch-btn" href="#" v-for="(inform_page, inform_page_id) in pagesSearch"
+                                v-on:click="changePage(inform_page_id)">{{inform_page.name}}</a>
+                        </div>
+                       
+                    </li>
+                </ul>
+            </div>
+            <button class="btn btn-secondary" style="margin-right: 50px;" v-on:click="salir()">Salir</button>
+            <button class="btn btn-secondary" v-show="!show_values" v-on:click="btnShowValues"><i class="fa-solid fa-eye mr-2"></i>Mostrar Valores</button>
+            <button class="btn btn-secondary" v-show="show_values" v-on:click="btnHideValues"><i class="fa-solid fa-eye-slash mr-2"></i>Ocultar Valores</button>
+        </nav>
+        <div id="Container" class="container mt-4 mb-4">
+            <div class="row">
+                <div class="col" id="Filters">
+                    <div class="card sticky-top">
+                        <div class="card-header">
+                            {{__('Filters')}}
+                        </div>
+                        <div class="card-body">
+                            
+                            <div class="card" v-for="(filter, filter_id) in pageFilters">
+                                <div class="card-header">
+                                    {{filter.name}}
+                                </div>
+                                <div class="card-body">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" v-bind:id="'filter_' + filter_id + '_all'"
+                                            v-bind:checked="getFilterStatusAll(filter_id) ? 'checked' : ''" @click="toggleFilterStatusAll(filter_id)">
+                                        <label class="custom-control-label" v-bind:for="'filter_' + filter_id + '_all'">{{getFilterStatusAll(filter_id) ? 'Deseleccionar todos' : 'Seleccionar todos'}}</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox" v-for="option in getFilterOptions(filter_id)">
+                                        <input type="checkbox" class="custom-control-input" v-bind:id="'filter_' + filter_id + '_' + option.ID"
+                                            v-bind:checked="getFilterStatus(filter_id, option.ID) ? 'checked' : ''" @click="toggleFilterStatus(filter_id, option.ID)">
+                                        <label class="custom-control-label" v-bind:for="'filter_' + filter_id + '_' + option.ID">{{option.NAME}}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col" id="Page">
+                    <div class="card">
+                        <div class="card-header" v-html="page.name">
+                        </div>
+                        <div class="card-body">
+                            <bi-content v-for="content in page.content" v-bind:content="content" v-bind:key="_.uniqueId('bi-content_')"></bi-content>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='Loader'></div>
+    </div>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js" integrity="sha256-ur/YlHMU96MxHEsy3fHGszZHas7NzH4RQlD4tDVvFhw=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ==" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
+    <!--
+    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js" integrity="sha512-R/QOHLpV1Ggq22vfDAWYOaMd5RopHrJNMxi8/lJu8Oihwi4Ho4BRFeiMiCefn9rasajKjnx9/fTQ/xkWnkDACg=="></script>
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="./fx.js?v=220405_001"></script>
+    <script src="./assets/js/app.js?v=220405_001"></script>
+  </body>
+</html>

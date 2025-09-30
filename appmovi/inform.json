@@ -1,0 +1,132 @@
+{
+    "name": "BI MOVILIDAD",
+    "filters": {
+        "AÑO": {
+            "name": "Año",
+            "column": "1"
+        },
+        "ISLA": {
+            "name": "Isla en la que trabajas",
+            "column": "11"
+        },
+        "TIPO": {
+            "name": "Tipo de local",
+            "column": "12"
+        }
+      
+    },
+    "inform_filters": [
+        "AÑO",
+        "ISLA",
+        "TIPO"
+     
+    ],
+    "functions": {},
+    "pages": [
+        {
+            "name": "Kilómetros",
+            "filters": [],
+            "content": [
+              {
+                "type": "row",
+                "content": [
+                  {
+                    "type": "col",
+                    "content": [
+                      {
+                        "type": "card",
+                        "header": "Número de encuestados por Islas",
+                        "class": "mb-3",
+                        "content": [
+                          {
+                            "type": "table",
+      
+                            "titles": [
+                              "ISLA",
+                              "Gran Canaria",
+                              "Tenerife",
+                              "La Palma",
+                              "Lanzarote",
+                              "Fuerteventura",
+                              "TOTALES"
+                            ],
+                            "blacklist": [0],
+                            "data": ["$return =  fx.tablaencuestados(11).datos"],
+                            "config": {
+                              "labels": [
+                                {
+                                  "render": "percentage",
+                                  "fontColor": ["black"]
+                                }
+                              ],
+                              "tooltips": {
+                                "label": "",
+                                "title": ""
+                              },
+                              "legend": {
+                                "position": "left"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                      
+                     
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "row",
+                "content": [
+                  {
+                    "type": "col",
+                    "content": [
+                      {
+                        "type": "card",
+                        "header": "Kilómetros recoridos por semana",
+                        "class": "mb-3",
+                        "content": [
+                          {
+                            "type": "table",
+      
+                            "titles": [
+                              "Tipo de Vehículo",
+                              "Gran Canaria",
+                              "Tenerife",
+                              "La Palma",
+                              "Lanzarote",
+                              "Fuerteventura"
+                            ],
+                            "blacklist": [0],
+                            "data": ["$return =  fx.tablaencuestados(4).datos"],
+                            "config": {
+                              "labels": [
+                                {
+                                  "render": "percentage",
+                                  "fontColor": ["black"]
+                                }
+                              ],
+                              "tooltips": {
+                                "label": "",
+                                "title": ""
+                              },
+                              "legend": {
+                                "position": "left"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                      
+                     
+                    ]
+                  }
+                ]
+              }
+             
+            ]
+          }
+
+    ]
+}
