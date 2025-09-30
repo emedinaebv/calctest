@@ -7,22 +7,38 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/slate/bootstrap.min.css">
+
   <script>
-    function navigateToApp(url) {
-      window.location.href = url;
+    // Función para calcular hash SHA-256
+    async function sha256(message) {
+      const msgBuffer = new TextEncoder().encode(message);
+      const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
     }
 
-    function checkLogin(e) {
+    async function checkLogin(e) {
       e.preventDefault();
       const user = document.getElementById("user").value.trim();
       const pass = document.getElementById("pass").value;
 
-      if (user === "admin" && pass === "12345678") {
+      // Usuario correcto
+      const correctUser = "admin";
+      // Hash SHA-256 de la contraseña "12345678"
+      const correctHash = "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f";
+
+      const passHash = await sha256(pass);
+
+      if (user === correctUser && passHash === correctHash) {
         document.getElementById("loginBox").style.display = "none";
         document.getElementById("menuBox").style.display = "block";
       } else {
         alert("Usuario o contraseña incorrectos");
       }
+    }
+
+    function navigateToApp(url) {
+      window.location.href = url;
     }
   </script>
 </head>
@@ -54,5 +70,3 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
