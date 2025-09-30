@@ -1,117 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Calculadora</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .calculator {
-      background: #fff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      width: 260px;
-      text-align: center;
-    }
-    #display {
-      width: 100%;
-      height: 50px;
-      font-size: 20px;
-      margin-bottom: 15px;
-      text-align: right;
-      padding: 5px 10px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-sizing: border-box;
-    }
-    .buttons {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-    button {
-      padding: 15px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background: #2563eb;
-      color: #fff;
-      transition: background 0.2s;
-    }
-    button:hover {
-      background: #1d4ed8;
-    }
-    .equal {
-      grid-column: span 2;
-      background: #16a34a;
-    }
-    .equal:hover {
-      background: #15803d;
-    }
-    .clear {
-      background: #dc2626;
-    }
-    .clear:hover {
-      background: #b91c1c;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Navigation</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Bootswatch Theme (Cosmo) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/slate/bootstrap.min.css">
+    <script>
+        function navigateToApp(url) {
+            window.location.href = url;
+        }
+    </script>
 </head>
-<body>
-  <div class="calculator">
-    <input type="text" id="display" disabled />
-    <div class="buttons">
-      <button onclick="appendValue('7')">7</button>
-      <button onclick="appendValue('8')">8</button>
-      <button onclick="appendValue('9')">9</button>
-      <button onclick="appendValue('/')">÷</button>
-
-      <button onclick="appendValue('4')">4</button>
-      <button onclick="appendValue('5')">5</button>
-      <button onclick="appendValue('6')">6</button>
-      <button onclick="appendValue('*')">×</button>
-
-      <button onclick="appendValue('1')">1</button>
-      <button onclick="appendValue('2')">2</button>
-      <button onclick="appendValue('3')">3</button>
-      <button onclick="appendValue('-')">−</button>
-
-      <button onclick="appendValue('0')">0</button>
-      <button onclick="appendValue('.')">.</button>
-      <button class="equal" onclick="calculate()">=</button>
-      <button onclick="appendValue('+')">+</button>
-
-      <button class="clear" onclick="clearDisplay()">C</button>
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light" style="background-color: brown !important;">
+    <div class="text-center">
+        <h1 class="mb-4">Elige un BI</h1>
+        <button class="btn btn-primary btn-lg m-2" onclick="navigateToApp('appmovi/index.html')">Movilidad</button>
+        <button class="btn btn-success btn-lg m-2" onclick="navigateToApp('appemalsa/index.html')">Emalsa</button>
+        <button class="btn btn-info btn-lg m-2" onclick="navigateToApp('appports/index.html')">Autoridad Portuaria</button>
+         <button class="btn btn-info btn-lg m-2" onclick="navigateToApp('appesg/index.html')">Hiperdino</button>
     </div>
-  </div>
-
-  <script>
-    const display = document.getElementById("display");
-
-    function appendValue(value) {
-      display.value += value;
-    }
-
-    function clearDisplay() {
-      display.value = "";
-    }
-
-    function calculate() {
-      try {
-        display.value = eval(display.value); // ⚠️ eval solo para pruebas
-      } catch {
-        display.value = "Error";
-      }
-    }
-  </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
