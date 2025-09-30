@@ -1,28 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Navigation</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <!-- Bootswatch Theme (Cosmo) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/slate/bootstrap.min.css">
-    <script>
-        function navigateToApp(url) {
-            window.location.href = url;
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso protegido</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/slate/bootstrap.min.css">
+  <script>
+    function navigateToApp(url) {
+      window.location.href = url;
+    }
+
+    function checkLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById("user").value.trim();
+      const pass = document.getElementById("pass").value;
+
+      if (user === "admin" && pass === "12345678") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("menuBox").style.display = "block";
+      } else {
+        alert("Usuario o contraseña incorrectos");
+      }
+    }
+  </script>
 </head>
-<body class="d-flex justify-content-center align-items-center vh-100 bg-light" style="background-color: brown !important;">
-    <div class="text-center">
-        <h1 class="mb-4">Elige un BI</h1>
-        <button class="btn btn-primary btn-lg m-2" onclick="navigateToApp('appmovi/index.html')">Movilidad</button>
-        <button class="btn btn-success btn-lg m-2" onclick="navigateToApp('appemalsa/index.html')">Emalsa</button>
-        <button class="btn btn-info btn-lg m-2" onclick="navigateToApp('appports/index.html')">Autoridad Portuaria</button>
-         <button class="btn btn-info btn-lg m-2" onclick="navigateToApp('appesg/index.html')">Hiperdino</button>
-    </div>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light" style="background-color:brown !important;">
+  <!-- Caja de login -->
+  <div id="loginBox" class="card p-4 shadow text-center" style="min-width:300px;">
+    <h2 class="mb-3">Acceso</h2>
+    <form onsubmit="checkLogin(event)">
+      <div class="mb-3">
+        <input type="text" id="user" class="form-control" placeholder="Usuario" required>
+      </div>
+      <div class="mb-3">
+        <input type="password" id="pass" class="form-control" placeholder="Contraseña" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Entrar</button>
+    </form>
+  </div>
+
+  <!-- Caja de menú (oculta al inicio) -->
+  <div id="menuBox" class="text-center" style="display:none;">
+    <h1 class="mb-4">Elige un BI</h1>
+    <button class="btn btn-primary btn-lg m-2" onclick="navigateToApp('appmovi/index.html')">Movilidad</button>
+    <button class="btn btn-success btn-lg m-2" onclick="navigateToApp('appemalsa/index.html')">Emalsa</button>
+    <button class="btn btn-info btn-lg m-2" onclick="navigateToApp('appports/index.html')">Autoridad Portuaria</button>
+    <button class="btn btn-warning btn-lg m-2" onclick="navigateToApp('appesg/index.html')">Hiperdino</button>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
