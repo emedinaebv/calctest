@@ -1,0 +1,78 @@
+* {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+html,
+body,
+#App {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#App {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#Container {
+}
+#Filters {
+  max-width: 280px;
+}
+#Filters > .card {
+  top: 90px;
+  z-index: 1000;
+}
+
+#Filters .card .card:not(:first-child) {
+  margin-top: 15px;
+}
+
+#Page {
+  max-width: calc(100% - 280px);
+}
+#Loader {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #444444;
+  background-image: url(../img/loading.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  z-index: 9999999;
+}
+.comment {
+  border: 2px dotted #c44651;
+  border-radius: 5px;
+  padding: 10px;
+}
+table {
+  width: 100%;
+}
+.table {
+  width: 100%;
+  overflow: auto;
+}
+
+.text-red {
+  color: #c44651;
+}
+
+.navbar-expand .navbar-nav .dropdown-menu {
+  position: absolute;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.chart {
+  min-height: 400px;
+}

@@ -1,0 +1,22 @@
+{
+    "name": "BI ESG Proveedores",
+    "filters": {
+        "AÑO": {
+            "name": "Año",
+            "column": "1"
+        },
+           "EMPRESA": {
+            "name": "Empresa",
+            "column": "19"
+        }
+      
+    },
+    "inform_filters": [
+        "AÑO",
+        "EMPRESA"
+     
+    ],
+    "functions": {},
+    "pages": [
+    ]
+}
